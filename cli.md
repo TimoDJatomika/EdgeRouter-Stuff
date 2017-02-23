@@ -29,7 +29,7 @@ Allways run commit and save if you want to save your configuration.
  
  the `delete` command can delete a configuration (simular to e.g. `no shutdown` in the cisco world). E.g.: `delete system domain-name`
  
- ### Basic Configuration - Service
+### Basic Configuration - Service
  Command | Function 
  --- | ---
  
