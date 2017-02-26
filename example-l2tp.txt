@@ -1,0 +1,19 @@
+set vpn ipsec auto-firewall-nat-exclude disable
+set vpn ipsec ipsec-interfaces interface eth0
+set vpn ipsec nat-networks allowed-network 0.0.0.0/0
+set vpn ipsec nat-traversal enable
+
+# create a new user that is able to connect
+set vpn l2tp remote-access authentication local-users username john password supersecret
+
+set vpn l2tp remote-access authentication mode local
+set vpn l2tp remote-access client-ip-pool start 172.19.1.20
+set vpn l2tp remote-access client-ip-pool stop 172.19.1.70
+
+# change the psk
+set vpn l2tp remote-access ipsec-settings authentication mode pre-shared-secret
+set vpn l2tp remote-access ipsec-settings authentication pre-shared-secret supersecretpreshareskey
+set vpn l2tp remote-access ipsec-settings ike-lifetime 3600
+
+# set your public ip here
+set vpn l2tp remote-access outside-address <public-ip>
