@@ -1,0 +1,12 @@
+# OpenVPN config
+set interfaces openvpn vtun0 mode server
+set interfaces openvpn vtun0 server name-server 8.8.8.8
+# set your network
+set interfaces openvpn vtun0 server push-route 192.168.178.0/24
+# net the ranche for the openvpn clients
+set interfaces openvpn vtun0 server subnet 192.168.177.0/24
+
+set interfaces openvpn vtun0 tls ca-cert-file /config/auth/ca.crt
+set interfaces openvpn vtun0 tls cert-file /config/auth/server.crt
+set interfaces openvpn vtun0 tls dh-file /config/auth/dh1024.pem
+set interfaces openvpn vtun0 tls key-file /config/auth/server.key
