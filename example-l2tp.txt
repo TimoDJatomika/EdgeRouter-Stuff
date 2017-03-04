@@ -17,3 +17,16 @@ set vpn l2tp remote-access ipsec-settings ike-lifetime 3600
 
 # set your public ip here
 set vpn l2tp remote-access outside-address <public-ip>
+
+# change the dns server for the client if you want
+set vpn l2tp remote-access dns-servers server-1 8.8.8.8
+
+# don't forget to set NAT if you haven't already
+set service nat rule 5003 description NAT-L2TP
+set service nat rule 5003 log disable
+# set correct outbound interface
+set service nat rule 5003 outbound-interface eth0
+set service nat rule 5003 protocol all
+#  set correct source address ranche
+set service nat rule 5003 source address 172.19.1.0/24
+set service nat rule 5003 type masquerade
