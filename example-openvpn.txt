@@ -10,3 +10,8 @@ set interfaces openvpn vtun0 tls ca-cert-file /config/auth/ca.crt
 set interfaces openvpn vtun0 tls cert-file /config/auth/server.crt
 set interfaces openvpn vtun0 tls dh-file /config/auth/dh1024.pem
 set interfaces openvpn vtun0 tls key-file /config/auth/server.key
+
+# config log
+set interfaces openvpn vtun0 openvpn-option "--log /var/log/openvpn.log"
+set interfaces openvpn vtun0 openvpn-option "--status /var/log/openvpn-status.log"
+set interfaces openvpn vtun0 openvpn-option "--verb 7"
