@@ -1,6 +1,7 @@
 # AWS VPN connection
 
 # change this address. The address is provided in your AWS configuration
+# Inside IP Addresses -> Customer Gateway
 set interfaces vti vti1 address 169.254.41.130/30
 set interfaces vti vti1 description 'AWS VPC FRA'
 set interfaces vti vti1 mtu 1436
