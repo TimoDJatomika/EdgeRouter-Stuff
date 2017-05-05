@@ -39,5 +39,29 @@ Allways run `commit` and `save` if you want to save your configuration.
 set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor ip-address 10.10.99.11
 set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor mac-address '52:54:xx:xx:xx:xx'
 ```
+
+### Configuration Switch
+The Router can also act as a switch. Here is an example:
+```
+set interfaces switch switch0 address 172.22.1.1/24
+set interfaces switch switch0 mtu 1500
+set interfaces switch switch0 switch-port interface eth2
+set interfaces switch switch0 switch-port interface eth3
+set interfaces switch switch0 switch-port interface eth4
+set interfaces switch switch0 switch-port vlan-aware disable
+```
+
+### Configuration DHCP Server
+```
+set service dhcp-server shared-network-name CLIENT-LAN authoritative disable
+set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 default-router 172.22.1.1
+set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 dns-server 18.8.8.8
+set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 lease 86400
+set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 start 172.22.1.10 stop 172.22.1.100
+```
+
+
+
+
  
  
