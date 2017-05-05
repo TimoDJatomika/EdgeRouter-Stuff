@@ -34,11 +34,7 @@ Allways run `commit` and `save` if you want to save your configuration.
  --- | ---
  `show dhcp leases` | show ip address, MAC adress, pool and client name
  
- ### Configure static IP for device
-```
-set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor ip-address 10.10.99.11
-set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor mac-address '52:54:xx:xx:xx:xx'
-```
+
 
 ### Configuration Switch
 The Router can also act as a switch. Here is an example:
@@ -60,7 +56,11 @@ set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 leas
 set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 start 172.22.1.10 stop 172.22.1.100
 ```
 
-
+#### Configure static IP for device
+```
+set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor ip-address 10.10.99.11
+set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor mac-address '52:54:xx:xx:xx:xx'
+```
 
 
  
