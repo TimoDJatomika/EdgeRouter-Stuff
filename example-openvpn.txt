@@ -2,6 +2,7 @@
 set interfaces openvpn vtun0
 set interfaces openvpn vtun0 mode server
 set interfaces openvpn vtun0 server name-server 8.8.8.8
+set interfaces openvpn vtun0 server domain-name foobar.com
 # set your network
 set interfaces openvpn vtun0 server push-route 192.168.178.0/24
 # set the ranche for the openvpn clients
