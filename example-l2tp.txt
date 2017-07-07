@@ -1,5 +1,6 @@
 set vpn ipsec auto-firewall-nat-exclude disable
-set vpn ipsec ipsec-interfaces interface eth0
+# also works if you don't specify the ipsec-interface (this is the wan interface)
+#set vpn ipsec ipsec-interfaces interface eth0
 set vpn ipsec nat-networks allowed-network 0.0.0.0/0
 set vpn ipsec nat-traversal enable
 
