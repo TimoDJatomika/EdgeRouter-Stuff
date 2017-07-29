@@ -1,4 +1,7 @@
 # OpenVPN config
+
+configure
+
 set interfaces openvpn vtun0
 set interfaces openvpn vtun0 mode server
 set interfaces openvpn vtun0 server name-server 8.8.8.8
