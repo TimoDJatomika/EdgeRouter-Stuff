@@ -1,6 +1,6 @@
 # AWS VPN connection
 
-# change this address. The address is provided in your AWS configuration
+# change the IP address. The address is provided in your AWS configuration.
 # Inside IP Addresses -> Customer Gateway
 set interfaces vti vti1 address 169.254.41.130/30
 set interfaces vti vti1 description 'AWS VPC FRA'
@@ -8,7 +8,6 @@ set interfaces vti vti1 mtu 1436
 
 # set you VPC IP Subnet here
 set protocols static interface-route 10.20.0.0/16 next-hop-interface vti1
-
 
 set vpn ipsec auto-firewall-nat-exclude enable
 set vpn ipsec esp-group AWS compression disable
@@ -26,12 +25,12 @@ set vpn ipsec ike-group AWS lifetime 28800
 set vpn ipsec ike-group AWS proposal 1 dh-group 2
 set vpn ipsec ike-group AWS proposal 1 encryption aes128
 set vpn ipsec ike-group AWS proposal 1 hash sha1
-# change to our WAN Interface
+# change to your WAN Interface
 set vpn ipsec ipsec-interfaces interface eth6
 set vpn ipsec nat-networks allowed-network 0.0.0.0/0
 set vpn ipsec nat-traversal enable
 
-# replace with your AWS VPN Server IP
+# replace with your AWS VPN Server IP. You can find the public IP in the AWS config file. 
 set vpn ipsec site-to-site peer <aws-server-ip> authentication mode pre-shared-secret
 # set your AWS PSK here
 set vpn ipsec site-to-site peer <aws-server-ip> authentication pre-shared-secret <your-psk>
@@ -50,7 +49,7 @@ set service nat rule 5011 description no-nat-aws
 set service nat rule 5011 exclude
 set service nat rule 5011 log disable
 set service nat rule 5011 outbound-interface vti1
-# this is the aws subnet
+# raplace with your aws subnet
 set service nat rule 5011 source address 10.20.0.0/16
 set service nat rule 5011 type masquerade
 
