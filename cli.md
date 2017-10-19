@@ -35,6 +35,18 @@ Allways run `commit` and `save` if you want to save your configuration.
  `show dhcp leases` | show ip address, MAC adress, pool and client name
  
 
+### Create a new System User
+replace *<new-username>* with your username and *<superSecretPassword123>* with your **strong** password. The password is stored encrypted so this is the only time you see the password in plain text.
+
+```
+set system login user <new-username> authentication plaintext-password <superSecretPassword123>
+set system login user <new-username> level admin
+```
+Now test if you can login with the new user and then delete the default user *ubnt*. This only works if the user isn't logged in (either via ssh or GUI).
+```
+delete system login user ubnt
+```
+
 
 ### Configuration Switch
 The Router can also act as a switch. Here is an example:
