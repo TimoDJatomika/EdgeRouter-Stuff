@@ -9,7 +9,7 @@
 - Download the latest Image from the Ubiquitis website and upload the image to the Router
 
 ### Firmware Upgrade via CLI
-Go to the Ubiquiti's Firmware Website and copy the URL
+Go to the [Ubiquiti's Firmware Website](https://www.ubnt.com/download/edgemax) and copy the URL
 
 ```
 add system image https://dl.ubnt.com/firmwares/edgemax/v1.9.7/ER-e200.v1.9.7.5001803.tar
