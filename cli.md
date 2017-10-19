@@ -51,7 +51,7 @@ set interfaces switch switch0 switch-port vlan-aware disable
 ```
 set service dhcp-server shared-network-name CLIENT-LAN authoritative disable
 set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 default-router 172.22.1.1
-set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 dns-server 18.8.8.8
+set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 dns-server 8.8.8.8
 set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 lease 86400
 set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 start 172.22.1.10 stop 172.22.1.100
 ```
