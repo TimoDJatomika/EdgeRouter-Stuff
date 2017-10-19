@@ -25,7 +25,7 @@ Allways run `commit` and `save` if you want to save your configuration.
  `set system gateway-address 123.123.123` | set the default Gateway
  `set system ntp server 0.ubnt.pool.ntp.org` | set the ntp server (active per default). You can specify multiple NTP Server
  `set system time-zone Europe/Berlin` | set your timezone (use tab if you are in a different timezone)
- `set system login banner pre-login "This is a test \nAnd this is a new line\n"` set a banner (simular to banner in the cisco world)
+ `set system login banner pre-login "This is a test \nAnd this is a new line\n"` | set a banner (simular to banner in the cisco world)
  
  the `delete` command can delete a configuration (simular to e.g. `no shutdown` in the cisco world). E.g.: `delete system domain-name`
  
@@ -41,12 +41,14 @@ replace *<new-username>* with your username and *<superSecretPassword123>* with 
 ```
 set system login user <new-username> authentication plaintext-password <superSecretPassword123>
 set system login user <new-username> level admin
+# optional: set full name
+set system login user <new-username> full-name 'Firstname Lastname'
+
 ```
 Now test if you can login with the new user and then delete the default user *ubnt*. This only works if the user isn't logged in (either via ssh or GUI).
 ```
 delete system login user ubnt
 ```
-
 
 ### Configuration Switch
 The Router can also act as a switch. Here is an example:
