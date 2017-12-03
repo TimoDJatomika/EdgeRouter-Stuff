@@ -1,9 +1,0 @@
-# squidguard proxy
-You can use your Edge Router as a proxy server to block certain categories e.g. ads or malware.
-
-## prerequisite
-SSH into your Edge Router and download the available catogories. Depending on your device this could take a few minutes.
-
-```
-update webproxy blacklists
-```
