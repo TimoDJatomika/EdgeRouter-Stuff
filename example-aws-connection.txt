@@ -44,12 +44,10 @@ set vpn ipsec site-to-site peer <aws-server-ip> vti bind vti1
 set vpn ipsec site-to-site peer <aws-server-ip> vti esp-group AWS
 
 # disable nat for AWS Traffic
-
 set service nat rule 5011 description no-nat-aws
 set service nat rule 5011 exclude
 set service nat rule 5011 log disable
 set service nat rule 5011 outbound-interface vti1
-# raplace with your aws subnet
+# replace with your aws subnet
 set service nat rule 5011 source address 10.20.0.0/16
 set service nat rule 5011 type masquerade
-
