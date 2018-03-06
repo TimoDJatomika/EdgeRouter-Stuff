@@ -31,3 +31,11 @@ set service nat rule 5003 protocol all
 #  set correct source address ranche
 set service nat rule 5003 source address 172.19.1.0/24
 set service nat rule 5003 type masquerade
+
+
+## troubleshooting 
+# if you have problems setting up L2TP consider to take a look at the following log files
+# /var/log/messages
+# /var/log/charon.log
+# note that the usernames aren't logged. 
+# if you want to see who is currently connected just type: "show interfaces"
