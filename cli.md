@@ -13,8 +13,10 @@ Allways run `commit` and `save` if you want to save your configuration.
 
 *exit* brings you back into "normal mode"
 
-## show the running config
-`show configuration`
+## Show the running config
+`show configuration` gives you an "human readable" version of the configuration. `show configuration commands` displays a configuration that you can use for later purpose e.g. copy and paste it to a new device to make a 1to1 backup. 
+
+`show ip route` is similar to *Cisco IOS*: it gives you a list of all routes. 
 
 ### Basic Configuration - System
  Command | Function 
