@@ -1,4 +1,5 @@
-# 
+# Command Line Interface
+This site sould give you a basic overview about the CLI of your EdgeRouter. 
 
 In the background the device runs a VyOS. That means you can use the standard VyOs commands.
 
@@ -29,7 +30,7 @@ Allways run `commit` and `save` if you want to save your configuration.
  `set system time-zone Europe/Berlin` | set your timezone (use tab if you are in a different timezone)
  `set system login banner pre-login "This is a test \nAnd this is a new line\n"` | set a banner (simular to banner in the cisco world)
  
- the `delete` command can delete a configuration (simular to e.g. `no shutdown` in the cisco world). E.g.: `delete system domain-name`
+ the `delete` command can delete a configuration (simular to e.g. `no shutdown` in the cisco world). E. g.: `delete system domain-name`
  
 ### Basic Configuration - Service
  Command | Function 
@@ -77,7 +78,3 @@ set service dhcp-server shared-network-name CLIENT-LAN subnet 172.22.1.0/24 star
 set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor ip-address 10.10.99.11
 set service dhcp-server shared-network-name MGMT-VLAN subnet 10.10.99.0/24 static-mapping cgn-monitor mac-address '52:54:xx:xx:xx:xx'
 ```
-
-
- 
- 
