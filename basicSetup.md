@@ -22,3 +22,8 @@ Info: If you restart the device all PoE devices are also restarting
 ## After Firmware Update
 - Change the default Username / Password: Log back in and click on Users. Create a new User (be carefull with uper and lowercase). Logout and Log back in with the newly created User
 - Set an default Gateway and default DNS Server: click on System and fill in the blanks :D
+
+## Serial Console
+If you have an adapter your device will probably be `/dev/ttyUSB0`. Download putty and use this device. Set the bitrate to *115200*
+
+For more information see: [How to Connect to Serial Console](https://help.ubnt.com/hc/en-us/articles/205202630-EdgeRouter-How-to-Connect-to-Serial-Console)
