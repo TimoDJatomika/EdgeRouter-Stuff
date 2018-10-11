@@ -33,3 +33,10 @@ set service nat rule 5010 protocol all
 set service nat rule 5010 source address 10.10.0.0/16
 set service nat rule 5010 type masquerade
 ```
+
+
+# don't forget to turn TCP MMC clamping on
+```
+set firewall options mss-clamp interface-type all
+set firewall options mss-clamp mss 1412
+```
