@@ -21,6 +21,7 @@ set interfaces ethernet eth0 speed auto
 ## using a draytek vigor 130 as a "pure" modem
 - https://www.draytek.de/einrichtung-internet-mit-t-online.html
 - https://www.youtube.com/watch?v=6Whbg_KnumM
+- make sure you run the lastest firmware of the draytek vigor 130 !!!
 
 ## configure NAT
 If you are using nat and ppoe then you have to configure NAT on **pppoe**. 
@@ -36,6 +37,7 @@ set service nat rule 5010 type masquerade
 
 
 # don't forget to turn TCP MMC clamping on
+otherwise some sites will not load.
 ```
 set firewall options mss-clamp interface-type all
 set firewall options mss-clamp mss 1412
