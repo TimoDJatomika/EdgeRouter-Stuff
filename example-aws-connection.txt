@@ -2,12 +2,12 @@
 
 # change the IP address. The address is provided in your AWS configuration.
 # Inside IP Addresses -> Customer Gateway
-set interfaces vti vti1 address 169.254.41.130/30
-set interfaces vti vti1 description 'AWS VPC FRA'
-set interfaces vti vti1 mtu 1436
+set interfaces vti vti0 address 169.254.41.130/30
+set interfaces vti vti0 description 'AWS VPC FRA'
+set interfaces vti vti0 mtu 1436
 
 # set you VPC IP Subnet here
-set protocols static interface-route 10.20.0.0/16 next-hop-interface vti1
+set protocols static interface-route 10.20.0.0/16 next-hop-interface vti0
 
 set vpn ipsec auto-firewall-nat-exclude enable
 set vpn ipsec esp-group AWS compression disable
@@ -40,14 +40,14 @@ set vpn ipsec site-to-site peer <aws-server-ip> ike-group AWS
 set vpn ipsec site-to-site peer <aws-server-ip> ikev2-reauth inherit
 # set your local WAN address
 set vpn ipsec site-to-site peer <aws-server-ip> local-address <your-wan-ip>
-set vpn ipsec site-to-site peer <aws-server-ip> vti bind vti1
+set vpn ipsec site-to-site peer <aws-server-ip> vti bind vti0
 set vpn ipsec site-to-site peer <aws-server-ip> vti esp-group AWS
 
 # disable nat for AWS Traffic
 set service nat rule 5011 description no-nat-aws
 set service nat rule 5011 exclude
 set service nat rule 5011 log disable
-set service nat rule 5011 outbound-interface vti1
+set service nat rule 5011 outbound-interface vti0
 # replace with your aws subnet
 set service nat rule 5011 source address 10.20.0.0/16
 set service nat rule 5011 type masquerade
