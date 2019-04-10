@@ -19,6 +19,8 @@ set interfaces openvpn vtun0 tls key-file /config/auth/server.key
 # optional: set revocation list
 set interfaces openvpn vtun0 tls crl-file /config/auth/revocation-list.crl
 
+# make sure you private key has `chmod 400`
+
 # config log
 set interfaces openvpn vtun0 openvpn-option "--log /var/log/openvpn.log"
 set interfaces openvpn vtun0 openvpn-option "--status /var/log/openvpn-status.log"
