@@ -1,28 +1,45 @@
+# L2TP Setup
+
+## setup ip sec
+```bash
 set vpn ipsec auto-firewall-nat-exclude disable
 # also works if you don't specify the ipsec-interface (this is the wan interface)
-#set vpn ipsec ipsec-interfaces interface eth0
+# set vpn ipsec ipsec-interfaces interface eth0
 set vpn ipsec nat-networks allowed-network 0.0.0.0/0
 set vpn ipsec nat-traversal enable
+```
 
-# create a new user that is able to connect
+## create user accounts
+```bash
 set vpn l2tp remote-access authentication local-users username john password supersecret
+```
 
+## setup ip range for remote users 
+```bash
 set vpn l2tp remote-access authentication mode local
 set vpn l2tp remote-access client-ip-pool start 172.19.1.20
 set vpn l2tp remote-access client-ip-pool stop 172.19.1.70
+```
 
-# change the psk
+## setup PSK for remote users
+```bash
 set vpn l2tp remote-access ipsec-settings authentication mode pre-shared-secret
 set vpn l2tp remote-access ipsec-settings authentication pre-shared-secret supersecretpreshareskey
 set vpn l2tp remote-access ipsec-settings ike-lifetime 3600
+```
 
-# set your public ip here
+## set public IP
+```bash
 set vpn l2tp remote-access outside-address <public-ip>
+```
 
-# change the dns server for the client if you want
+## set DNS Server for clients
+```
 set vpn l2tp remote-access dns-servers server-1 8.8.8.8
+```
 
-# don't forget to set NAT if you haven't already
+## don't forget to set NAT if you haven't already
+```bash
 set service nat rule 5003 description NAT-L2TP
 set service nat rule 5003 log disable
 # set correct outbound interface
@@ -31,11 +48,12 @@ set service nat rule 5003 protocol all
 #  set correct source address ranche
 set service nat rule 5003 source address 172.19.1.0/24
 set service nat rule 5003 type masquerade
-
+```
 
 ## troubleshooting 
-# if you have problems setting up L2TP consider to take a look at the following log files
-# /var/log/messages
-# /var/log/charon.log
-# note that the usernames aren't logged. 
-# if you want to see who is currently connected just type: "show interfaces"
+If you have problems setting up L2TP consider to take a look at the following log files:
+- /var/log/messages
+- /var/log/charon.log
+- note that the usernames aren't logged. 
+
+I you want to see who is currently connected just type: "show interfaces"
