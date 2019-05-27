@@ -1,5 +1,31 @@
 # L2TP Setup
 
+If you have problem connection with your end device just restart the router.
+
+## setup firewall
+```
+set firewall name WAN_LOCAL rule 80 action accept
+set firewall name WAN_LOCAL rule 80 description 'Allow l2tp vpn'
+set firewall name WAN_LOCAL rule 80 destination port 500
+set firewall name WAN_LOCAL rule 80 log disable
+set firewall name WAN_LOCAL rule 80 protocol udp
+set firewall name WAN_LOCAL rule 90 action accept
+set firewall name WAN_LOCAL rule 90 description 'Allow l2tp vpn'
+set firewall name WAN_LOCAL rule 90 destination port 4500
+set firewall name WAN_LOCAL rule 90 log disable
+set firewall name WAN_LOCAL rule 90 protocol udp
+set firewall name WAN_LOCAL rule 100 action accept
+set firewall name WAN_LOCAL rule 100 description 'Allow l2tp vpn'
+set firewall name WAN_LOCAL rule 100 destination port 1701
+set firewall name WAN_LOCAL rule 100 ipsec match-ipsec
+set firewall name WAN_LOCAL rule 100 log disable
+set firewall name WAN_LOCAL rule 100 protocol udp
+set firewall name WAN_LOCAL rule 110 action accept
+set firewall name WAN_LOCAL rule 110 description 'Allow l2tp vpn'
+set firewall name WAN_LOCAL rule 110 log disable
+set firewall name WAN_LOCAL rule 110 protocol esp
+```
+
 ## setup ip sec
 ```bash
 set vpn ipsec auto-firewall-nat-exclude disable
