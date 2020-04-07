@@ -1,7 +1,8 @@
-# OpenVPN config
+# OpenVPN config (Server)
+This tutorial describes how to setup a OpenVPN server on a EdgeRouter.
 
-## create Certificates
-You need to create the following files. You can use the Software XCA for that
+## Create certificates
+Here is a list with files that you need. You can use the Software XCA for that
 - ca.crt (Root CA)
 - server.crt (Server Certificate)
   - To prevent MITM Attacks make sure you set 
@@ -15,7 +16,7 @@ After you create the files copy all of them into `/config/auth/`
 
 For you client config: Make sure `remote-cert-tls server` is set.
 
-## configure Basic
+## Basic OpenVPN configuration
 ```
 configure
 set interfaces openvpn vtun0
@@ -28,8 +29,8 @@ set interfaces openvpn vtun0 server push-route 192.168.178.0/24
 set interfaces openvpn vtun0 server subnet 192.168.177.0/24
 ```
 
-## configure Files
-As described above. Make sure you private key has `chmod 400`.
+## Certificate setup
+As described above. Make sure you private key has `chmod 600`.
 
 ```
 set interfaces openvpn vtun0 tls ca-cert-file /config/auth/ca.crt
@@ -40,15 +41,14 @@ set interfaces openvpn vtun0 tls key-file /config/auth/server.key
 set interfaces openvpn vtun0 tls crl-file /config/auth/revocation-list.crl
 ```
 
-## config Log
-
+## Configure logging
 ```
 set interfaces openvpn vtun0 openvpn-option "--log /var/log/openvpn.log"
 set interfaces openvpn vtun0 openvpn-option "--status /var/log/openvpn-status.log"
 set interfaces openvpn vtun0 openvpn-option "--verb 7"
 ```
 
-## configure Firewall
+## Firewall configuration
 Don't forget to set NAT for the openvpn clients
 
 ```

@@ -1,5 +1,6 @@
 # set nat for both interfaces
 
+```
 set load-balance group LB-GROUP interface eth3 failover-only
 set load-balance group LB-GROUP interface eth3 route-test initial-delay 60
 set load-balance group LB-GROUP interface eth3 route-test interval 10
@@ -11,3 +12,4 @@ set load-balance group LB-GROUP interface pppoe0 route-test type ping target 8.8
 
 set load-balance group LB-GROUP lb-local enable
 set load-balance group LB-GROUP lb-local-metric-change disable
+```
