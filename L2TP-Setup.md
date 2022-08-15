@@ -1,6 +1,12 @@
 # L2TP Setup
 
-If you have problem connection with your end device just restart the router.
+If you have problems with the connection, please restart the l2tp service: 
+
+```bash
+sudo su
+/etc/init.d/xl2tpd status   # should not be started
+/etc/init.d/xl2tpd restart  # restart the service
+```
 
 ## setup firewall
 ```
@@ -57,6 +63,7 @@ set vpn l2tp remote-access ipsec-settings ike-lifetime 3600
 ## set public IP
 ```bash
 set vpn l2tp remote-access outside-address <public-ip>
+# if you don't have a static IP address you can use 0.0.0.0 instead
 ```
 
 ## set DNS Server for clients
